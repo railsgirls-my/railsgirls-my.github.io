@@ -8,23 +8,18 @@ permalink: app
 
 *Created by Vesa Vänskä, [@vesan](https://twitter.com/vesan)*
 
-**Make sure you have Rails installed.** [**Follow the installation guide**](/install) to get set up.
+**Make sure you have a Nitrous.IO account.** Go to <a href="http://nitrous.io" target="_blank">http://nitrous.io</a> to sign up for one.
 
 
 ## Get to know the tools
 
 <div class="indent" markdown="1">
 
-<h3><i class="icon-text-editor">&nbsp;</i></h3>
+<h3><i class="icon-browser">&nbsp;</i></h3>
 
-<h3>Text Editor</h3>
+<h3>Nitrous.IO</h3>
+Nitrous.IO is a cloud development box and text editor where you can write and run your code.
 
-<p><a href="http://www.sublimetext.com">Sublime Text</a>, <a href="http://www.activestate.com/komodo-edit">Komodo Edit</a>, Vim, Emacs, and Gedit are examples of text editors your can use for writing code and editing files.</p>
-
-<h3><i class="icon-prompt">&nbsp;</i></h3>
-
-<h3>Terminal (known as Command Prompt on Windows)</h3>
-Where you start the rails server and run commands.
 
 <h3><i class="icon-browser">&nbsp;</i></h3>
 
@@ -33,116 +28,42 @@ Where you start the rails server and run commands.
 
 </div>
 
-### Important
-
-It is important that you select the instructions specific to your operating system - the commands you need to run on a Windows computer are slightly different to Mac or Linux. If you're having trouble check the Operating System switcher at the bottom of the commands.
-
 ## *1.*Creating the application
 
 We're going to create a new Rails app called *railsgirls*.
 
-First, let's open a terminal:
+First, log in to your Nitrous.IO box in your browser.
 
-* Mac OS X: Open Spotlight, type *Terminal* and click the *Terminal* application.
-* Windows: Click Start and look for *Command Prompt*, then click *Command Prompt with Ruby on Rails*.
-* Linux (Ubuntu/Fedora): Search for *Terminal* on the dash and click *Terminal*.
-
-Next, type these commands in the terminal:
-
-<div class="os-specific">
-  <div class="nix">
-{% highlight sh %}
-mkdir projects
-{% endhighlight %}
-
-    <div>
-<p>You can verify that a directory named <code>projects</code> was created by running the list command: <code>ls</code>. You should see the <code>projects</code> directory in the output. Now you want to change the directory you are currently in to the <code>projects</code> folder by running:</p>
-    </div>
+Next, type these commands in the *Console* tab of your Nitrous.IO page:
 
 {% highlight sh %}
-cd projects
+cd workspace
 {% endhighlight %}
 
-    <div>
 <p>You can verify you are now in an empty directory or folder by again running the <code>ls</code> command. Now you want to create a new app called <code>railsgirls</code> by running:</p>
-    </div>
 
 {% highlight sh %}
 rails new railsgirls
 {% endhighlight %}
 
-    <div>
 <p>This will create a new app in the folder <code>railsgirls</code>, so we again want to change the directory to be inside of our rails app by running:</p>
-    </div>
 
 {% highlight sh %}
 cd railsgirls
 {% endhighlight %}
 
-    <div>
 <p>If you run <code>ls</code> inside of the directory you should see folders such as <code>app</code> and <code>config</code>. You can then start the rails server by running:</p>
-    </div>
 
 {% highlight sh %}
 rails server
 {% endhighlight %}
-  </div>
 
-  <div class="win">
-{% highlight sh %}
-mkdir projects
-{% endhighlight %}
-
-    <div>
-<p>You can verify that a directory named <code>projects</code> was created by running the list command: <code>dir</code>. You should see the <code>projects</code> directory in the output. Now you want to change the directory you are currently in to the <code>projects</code> folder by running:</p>
-    </div>
-
-{% highlight sh %}
-cd projects
-{% endhighlight %}
-
-    <div>
-<p>You can verify you are now in an empty directory or folder by again running the <code>dir</code> command. Now you want to create a new app called <code>railsgirls</code> by running:</p>
-    </div>
-
-{% highlight sh %}
-rails new railsgirls
-{% endhighlight %}
-
-    <div>
-<p>This will create a new app in the folder <code>railsgirls</code>, so we again want to change the directory to be inside of our rails app by running:</p>
-    </div>
-
-{% highlight sh %}
-cd railsgirls
-{% endhighlight %}
-
-    <div>
-<p>If you run <code>dir</code> inside of the directory you should see folders such as <code>app</code> and <code>config</code>. You can then start the rails server by running:</p>
-    </div>
-
-{% highlight sh %}
-rails server
-{% endhighlight %}
-  </div>
-</div>
-
-Open [http://localhost:3000](http://localhost:3000) in your browser. You should see "Welcome aboard" page, which means that the generation of your new app worked correctly.
+Click *Preview* at the top of the page and select *Port 3000*. You should see "Welcome aboard" page, which means that the generation of your new app worked correctly.
 
 Notice in this window the command prompt is not visible because you are now in the Rails server, the command prompt looks like this:
-
-<div class="os-specific">
-  <div class="nix">
 {% highlight sh %}
 $
 {% endhighlight %}
-  </div>
-  <div class="win">
-{% highlight sh %}
->
-{% endhighlight %}
-  </div>
-</div>
 
 When the command prompt is not visible you cannot execute new commands. If you try running `cd` or another command it will not work. To return to the normal command prompt:
 
@@ -163,23 +84,13 @@ rails generate scaffold idea name:string description:text picture:string
 
 The scaffold creates new files in your project directory, but to get it to work properly we need to run a couple of other commands to update our database and restart the server.
 
-<div class="os-specific">
-  <div class="nix">
 {% highlight sh %}
 bin/rake db:migrate
 rails server
 {% endhighlight %}
-  </div>
 
-  <div class="win">
-{% highlight sh %}
-ruby bin/rake db:migrate
-rails server
-{% endhighlight %}
-  </div>
-</div>
-
-Open [http://localhost:3000/ideas](http://localhost:3000/ideas) in your browser. Click around and test what you got by running these few command-line commands.
+Click *Preview* at the top of the page and select *Port 3000* and append */ideas* to the
+ URL. Click around and test what you got by running these few command-line commands.
 
 Hit `CTRL-C` to quit the server again when you've clicked around a little.
 
@@ -190,7 +101,7 @@ Hit `CTRL-C` to quit the server again when you've clicked around a little.
 
 The app doesn't look very nice yet. Let's do something about that. We'll use the Twitter Bootstrap project to give us nicer styling really easily.
 
-Open `app/views/layouts/application.html.erb` in your text editor and above the line
+Navigate to `app/views/layouts/application.html.erb` in your Nitrous.IO page and above the line
 
 {% highlight erb %}
 <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
@@ -262,7 +173,7 @@ th { border-bottom: 1px solid #DDD; }
 
 Now make sure you saved your files and refresh the browser to see what was changed. You can also change the HTML & CSS further.
 
-In case your Terminal shows you an error message that *sort of* implies there is something wrong with your JavaScript or CoffeeScript, install [nodejs](http://nodejs.org/download/). This issue should not appear when you've used the RailsInstaller (but when you've installed Rails via ```gem install rails```).
+In case your *Console* tab shows you an error message that *sort of* implies there is something wrong with your JavaScript or CoffeeScript, install [nodejs](http://nodejs.org/download/). This issue should not appear when you've used the RailsInstaller (but when you've installed Rails via ```gem install rails```).
 
 **Coach:** Talk a little about CSS and layouts.
 
@@ -271,7 +182,7 @@ In case your Terminal shows you an error message that *sort of* implies there is
 
 We need to install a piece of software to let us upload files in Rails.
 
-Open `Gemfile` in the project directory using your text editor and under the line
+Open `Gemfile` in the project directory in your Nitrous.IO page and under the line
 
 {% highlight ruby %}
 gem 'sqlite3'
@@ -285,13 +196,13 @@ gem 'carrierwave'
 
 **Coach:** Explain what libraries are and why they are useful. Describe what open source software is.
 
-In the terminal run:
+In the *Console* tab run:
 
 {% highlight sh %}
 bundle
 {% endhighlight %}
 
-Now we can generate the code for handling uploads. In the terminal run:
+Now we can generate the code for handling uploads. In the *Console* run:
 
 {% highlight sh %}
 rails generate uploader Picture
@@ -299,7 +210,7 @@ rails generate uploader Picture
 
 At this point you need to **restart the Rails server process** in the terminal.
 
-Hit `CTRL-C` in the terminal to quit the server. Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.
+Hit `CTRL-C` in the *Console* tab to quit the server. Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.
 
 This is needed for the app to load the added library.
 
@@ -341,7 +252,7 @@ to
 <%= form_for @idea, :html => {:multipart => true} do |f| %>
 {% endhighlight %}
 
-In your browser, add new idea with a picture. When you upload a picture it doesn't look nice because it only shows a path to the file, so let's fix that.
+In your preview page, add new idea with a picture. When you upload a picture it doesn't look nice because it only shows a path to the file, so let's fix that.
 
 Open `app/views/ideas/show.html.erb` and change
 
@@ -362,7 +273,7 @@ Now refresh your browser to see what changed.
 
 ## *5.*Finetune the routes
 
-If you try to open [http://localhost:3000](http://localhost:3000) it still shows the "Welcome aboard" page. Let's make it redirect to the ideas page.
+If you try to click *Preview* at the top of the page and select *Port 3000* it still shows the "Welcome aboard" page. Let's make it redirect to the ideas page.
 
 Open `config/routes.rb` and after the first line add
 
@@ -370,7 +281,7 @@ Open `config/routes.rb` and after the first line add
 root :to => redirect('/ideas')
 {% endhighlight %}
 
-Test the change by opening the root path (that is, http://localhost:3000/) in your browser.
+Test the change by refresh the preview page in your browser.
 
 **Coach:** Talk about routes, and include details on the order of routes and their relation to static files.
 
@@ -392,7 +303,7 @@ It also adds a new simple route to your routes.rb.
 get "pages/info"
 {% endhighlight %}
 
-Now you can open the file `app/views/pages/info.html.erb` and add information about you in HTML and then take your browser to [http://localhost:3000/pages/info](http://localhost:3000/pages/info) to see your new info page.
+Now you can open the file `app/views/pages/info.html.erb` and add information about you in HTML and then click *Preview* at the top of the page and select *Port 3000* and append */pages/info* to the URL to see your new info page.
 
 ## *6+.*What next?
 
