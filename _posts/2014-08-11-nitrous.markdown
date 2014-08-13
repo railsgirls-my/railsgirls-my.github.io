@@ -35,7 +35,17 @@ Click the `Create Box` button to proceed. The next step is optional; you can buy
 ## *3.*Web IDE
 Now that you have a freshly minted Nitrous.IO box, you are ready to start our [Rails Girls App tutorial](/app)! Before you do that though, take some time to read the text in `README.md` and explore the Web IDE a little.
 
-![Nitrous.IO Web IDE](/images/nitrous-web-ide.png "Fresh from the oven!")
+![Nitrous.IO Web IDE](/images/nitrous-web-ide-labeled.png "Fresh from the oven!")
+
+In case you had logged out beforehand and are now logging back in, you can return to the Web IDE by finding your box on your Dashboard, and clicking on the `IDE` button. 
+
+![Nitrous.IO boxes](/images/nitrous-boxes-1.png)
+
+Occasionally, you may find that your Nitrous box has stopped running. That is because Nitrous automatically kills off idle sessions. If that happens, click on the `Start` button to restart your box.
+
+![Nitrous.IO boxes](/images/nitrous-boxes-2.png)
+
+Nitrous.IO documentation also has a [general overview](http://help.nitrous.io/ide-general/) of the Web IDE. Check it out!
 
 
 ## *4.*Next: [Rails Girls App Tutorial](/app)
