@@ -60,6 +60,8 @@ rails server
 
 Click *Preview* at the top of the Web IDE and select *Port 3000*. You should see a "Welcome aboard" page, which means that the generation of your new app worked correctly.
 
+![Preview](/images/nitrous-preview.png)
+
 Notice in this window the command prompt is not visible because you are now in the Rails server. The command prompt looks like this:
 {% highlight sh %}
 $
