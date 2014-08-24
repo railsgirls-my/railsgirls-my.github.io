@@ -8,8 +8,7 @@ permalink: app
 
 *Created by Vesa Vänskä, [@vesan](https://twitter.com/vesan)*
 
-**Make sure you have a [Nitrous.IO](http://nitrous.io) account.** Follow our [quick setup guide](/nitrous) for Nitrous.IO to get started.
-
+**We'll be creating the app on [Nitrous.IO](https://nitrous.io).** Follow the [quick setup guide](/nitrous) for Nitrous.IO to get started.
 
 ## Get to know the tools
 
@@ -17,14 +16,16 @@ permalink: app
 
 <h3><i class="icon-browser">&nbsp;</i></h3>
 
-<h3>Nitrous.IO</h3>
-Nitrous.IO is a cloud development box and text editor where you can write and run your code.
+<h3>Web browser</h3>
+Make sure you're using a modern web browser (Chrome, Firefox or Safari). Avoid using Internet Explorer.
 
+Both development and previewing of the app will be done entirely in the browser.
 
 <h3><i class="icon-browser">&nbsp;</i></h3>
 
-<h3>Web browser</h3>
-(Firefox, Safari, Chrome) for viewing your application.
+<h3>Nitrous.IO</h3>
+[Nitrous.IO](https://nitrous.io) is a cloud-based development environment where we can write and run the code.
+It works in the browser. No need to download or install anything on your computer.
 
 </div>
 
@@ -32,9 +33,10 @@ Nitrous.IO is a cloud development box and text editor where you can write and ru
 
 We're going to create a new Rails app called *railsgirls*. It is going to be a Photo Gallery.
 
-First, log in to your Nitrous.IO box in your browser.
+Hope you already followed the [quick setup guide](/nitrous) for Nitrous.IO.
+Then you can open the *IDE* of your Nitrous.IO box.
 
-Next, type these commands in the *Console* tab of your Nitrous.IO Web IDE:
+Next, type these commands in the *Console* tab of the IDE:
 
 {% highlight sh %}
 cd workspace
@@ -58,21 +60,26 @@ cd railsgirls
 rails server
 {% endhighlight %}
 
-Notice in the *Console* tab the command prompt is not visible because you are now in the Rails server. The command prompt looks like this:
+Notice now in the *Console*, the command prompt is not visible. The command prompt looks like this:
 {% highlight sh %}
-$
+action@box-name:~/workspace/railsgirls$
 {% endhighlight %}
 
-When the command prompt is not visible you cannot execute new commands. If you try running `cd` or another command it will not work. To return to the normal command prompt:
+This is because we are started the rails server in that *Console* tab.
 
-Hit `CTRL-C` in the *Console* tab of the Nitrous.IO Web IDE to quit the server.
+It means you cannot execute any other commands in that same *Console* tab. For example, if you try running `cd` or another command it will not work.
 
-Click *Preview* at the top of the Web IDE and select *Port 3000*. You should see a "Welcome aboard" page, which means that the generation of your new app worked correctly.
+If you want to run other commands, simply open another *Console* tab by clicking `+` sign next to current *Console* tab
+
+![Open new tab](/images/new-console-tab.png)
+
+**Tip:** You can keep two *Console* tabs open. One for running the server and other to run all the commands.
+
+Now click on *Preview* at the top of the Web IDE and select *Port 3000*. If you see page with "Welcome aboard" title, that means all went well. Voila!
 
 ![Preview](/images/nitrous-preview.png)
 
-
-**Coach:** Explain what each command does. What was generated? What does the server do?
+**Coach:** Briefly explain how a web request works. What we just generated and how we got that page when we hit *Preview*.
 
 
 ## *2.*Create Photo scaffold
@@ -81,7 +88,10 @@ We're going to use Rails' scaffold functionality to generate a starting point th
 
 **Coach:** What is Rails scaffolding? (Explain the command, the model name and related database table, naming conventions, attributes and types, etc.) What are migrations and why do you need them?
 
+Open a new *Console* tab and run the following commands:
+
 {% highlight sh %}
+cd workspace/railsgirls
 rails generate scaffold photo title:string description:text file:string
 {% endhighlight %}
 
@@ -89,35 +99,37 @@ The scaffold creates new files in your project directory, but to get it to work 
 
 {% highlight sh %}
 bin/rake db:migrate
-rails server
 {% endhighlight %}
 
-Click *Preview* at the top of the Web IDE and select *Port 3000* and append */photos* to the
- URL. Click around and test what you got by running these few command-line commands.
+Again, click *Preview* at the top of the Web IDE and select *Port 3000*. Then append */photos* to the <abbr title="Uniform Resource Locator">URL</abbr> shown in the address bar (eg. `http://box-name.apse1.nitrousbox.com/photos`). 
+You should see an empty page with the title "Listing photos". At the bottom you will see a link to add a "New Photo".
 
-Hit `CTRL-C` to quit the server again when you've clicked around a little.
-
+Play around with this a little. We got all these when we ran those scaffold commands earlier.
 
 ## *3.*Design Layout
 
-**Coach:** Talk about the relationship between HTML and Rails. What part of views is HTML and what is Embedded Ruby (ERB)? What is MVC and how does this relate to it? (Models and controllers are responsible for generating the HTML views.)
+**Coach:** Talk about the relationship between HTML and Rails. What part of views is HTML and what is Embedded Ruby templates (ERB)? What is MVC and how does this relate to it? (Models and controllers are responsible for generating the HTML views.)
 
-The app doesn't look very nice yet. Let's do something about that. We'll use Twitter's Bootstrap 3 project to give us nicer styling really easily.
+The app doesn't look very nice yet. Let's do something about that. We'll use [Twitter's Bootstrap 3](http://getbootstrap.com/) project to give us nicer styling really easily.
 
-Navigate to `app/views/layouts/application.html.erb` in your Nitrous.IO page and above the line
+In the IDE, use the File Browser to open  `app/views/layouts/application.html.erb`.
+
+![File Browser](/images/file-browser)
+
+Find the line that says
 
 {% highlight erb %}
 <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 {% endhighlight %}
 
-add
+Add the following two lines, above it:
 
 {% highlight erb %}
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
 {% endhighlight %}
 
-and replace
+Then replace
 
 {% highlight erb %}
 <%= yield %>
@@ -174,9 +186,9 @@ footer { margin-top: 100px; }
 
 Finally, delete the file `app/assets/stylesheets/scaffolds.css.scss` because we don’t really need the default style generated by Rails.
 
-Now make sure you saved your files and refresh the browser to see what was changed. You can also change the HTML & CSS further.
+**Tip:** You can right-click the file in File Browser to see a context menu. There you will see a delete option.
 
-In case your *Console* tab shows you an error message that *sort of* implies there is something wrong with your JavaScript or CoffeeScript, install [nodejs](http://nodejs.org/download/). This issue should not appear when you've used the RailsInstaller (but when you've installed Rails via ```gem install rails```).
+Now make sure you saved your files and refresh the browser tab previewing your app to see what was changed. You can also change the HTML & CSS further.
 
 **Coach:** Talk a little about CSS and layouts.
 
@@ -200,7 +212,7 @@ add
 
 We need to install a piece of software to let us upload files in Rails.
 
-Open `Gemfile` in the project directory in your Nitrous.IO page and under the line
+Open `Gemfile` and under the line:
 
 {% highlight ruby %}
 gem 'sqlite3'
@@ -214,13 +226,13 @@ gem 'carrierwave'
 
 **Coach:** Explain what libraries are and why they are useful. Describe what open source software is.
 
-In the *Console* tab run:
+Make sure you saved the file. Then in the *Console* tab run:
 
 {% highlight sh %}
 bundle
 {% endhighlight %}
 
-Now we can generate the code for handling uploads. In the *Console* run:
+Now we can generate the code for handling uploads. Again in *Console* run:
 
 {% highlight sh %}
 rails generate uploader Picture
@@ -228,7 +240,8 @@ rails generate uploader Picture
 
 At this point you need to **restart the Rails server process** in the *Console*.
 
-Hit `CTRL-C` in the *Console* tab to quit the server. Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.
+Go to the *Console* tab which runs the server and then hit `CTRL-C` to quit the server.
+Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again.
 
 This is needed for the app to load the added library.
 
@@ -270,7 +283,8 @@ to
 <%= form_for @photo, :html => {:multipart => true} do |f| %>
 {% endhighlight %}
 
-In your preview page, click on the *New Photo* link to add a new photo. When you upload an image it doesn't look nice because it only shows a path to the file, so let's fix that.
+In your preview page, again click on the *New Photo* link. This time we can actually add a new photo.
+When you upload an image it doesn't look nice because it only shows a path to the file, so let's fix that.
 
 Open `app/views/photos/show.html.erb` and change
 
@@ -287,7 +301,6 @@ to
 Now refresh your browser to see what changed.
 
 **Coach:** Talk a little about HTML.
-
 
 ## *5.*Design the photo upload form
 
@@ -327,9 +340,9 @@ To make the button look nice, add a `btn btn-default` CSS class to it
 
 Now it’s time to make the photo gallery (photo list) look more professional. For that, we are going to replace the table layout with a div layout.
 
-**Coach**: Talk a little about table vs div.
+**Coach**: Talk a little about table vs div (semantic markup).
 
-Open `app/views/photos/index.html.erb` in your text editor and replace all lines with
+Open `app/views/photos/index.html.erb` and replace all lines with
 
 {% highlight erb %}
 <h1>Listing photos</h1>
@@ -349,14 +362,14 @@ Open `app/views/photos/index.html.erb` in your text editor and replace all lines
 
 **Coach:** Explain what the new code means line by line, and talk a little about Bootstrap 12 grids layout.
 
-Refresh it! We get a nice looking photo gallery. Click the "New Photo" button, and add more photos with real text - the page will look much better with content. There is a principle of contemporary web design: content is the best decoration.
-
+Refresh it! We get a nice looking photo gallery. Click the "New Photo" button, and add more photos with real text - the page will look much better with content.
+There is a principle of contemporary web design: content is the best decoration.
 
 ## *7.*Design the photo details page
 
 Click the title of a photo, and you will be brought to the details page of the photo. Now it is still scaffold generated by Rails, so let's make it better.
 
-Open `app/views/photos/show.html.erb` in your text editor and replace all lines with
+Open `app/views/photos/show.html.erb` and replace all lines with
 
 {% highlight erb %}
 <p id="notice"><%= notice %></p>
@@ -381,11 +394,9 @@ Open `app/views/photos/show.html.erb` in your text editor and replace all lines 
 
 **Coach:** Explain what the new code means line by line.
 
-
-
 ## *8.*Finetune the routes
 
-If you try to click *Preview* at the top of the Web IDE and select *Port 3000* it still shows the "Welcome aboard" page. Let's make it redirect to the photos page.
+If go to the index page of your app (that's your app URL without `/photos` part) it still shows the "Welcome aboard" page. Let's make it go directly to the photos page.
 
 Open `config/routes.rb` and after the first line add
 
@@ -393,11 +404,11 @@ Open `config/routes.rb` and after the first line add
 root :to => redirect('/photos')
 {% endhighlight %}
 
+Then will need to delete the `index.html` from the `/public/` folder.
+
 Test the change by refreshing the preview page in your browser.
 
 **Coach:** Talk about routes, and include details on the order of routes and their relation to static files.
-
-**Rails 3 users:** You will need to delete the index.html from the `/public/` folder for this to work.
 
 ## Create static page in your app
 
@@ -415,7 +426,7 @@ It also adds a new simple route to your routes.rb.
 get "pages/info"
 {% endhighlight %}
 
-Now you can open the file `app/views/pages/info.html.erb` and add information about you in HTML and then click *Preview* at the top of the Web IDE and select *Port 3000* and append */pages/info* to the URL to see your new info page.
+Now you can open the file `app/views/pages/info.html.erb` and add information about you in HTML and then click *Preview > Port 3000* again and append */pages/info* to the URL to see your new info page.
 
 To add a link to the info page, open the file `app/views/layouts/application.html.erb`, and insert
 
@@ -425,7 +436,7 @@ To add a link to the info page, open the file `app/views/layouts/application.htm
 </p>
 {% endhighlight %}
 
-in between 
+in between
 
 {% highlight html %}
   <a class="navbar-brand" href="/">Photo Gallery</a>
@@ -446,7 +457,6 @@ and
 * Add ratings
 * Use CoffeeScript (or JavaScript) to add interaction
 * Add picture resizing to make loading the pictures faster
-
 
 ## Additional Guides
 
