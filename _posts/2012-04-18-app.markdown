@@ -114,7 +114,7 @@ The app doesn't look very nice yet. Let's do something about that. We'll use [Tw
 
 In the IDE, use the File Browser to open  `app/views/layouts/application.html.erb`.
 
-![File Browser](/images/file-browser)
+![File Browser](/images/file-browser.png)
 
 Find the line that says
 
