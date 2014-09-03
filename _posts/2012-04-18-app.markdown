@@ -101,7 +101,7 @@ The scaffold creates new files in your project directory, but to get it to work 
 bin/rake db:migrate
 {% endhighlight %}
 
-Again, click *Preview* at the top of the Web IDE and select *Port 3000*. Then append */photos* to the <abbr title="Uniform Resource Locator">URL</abbr> shown in the address bar (eg. `http://box-name.apse1.nitrousbox.com/photos`). 
+Again, click *Preview* at the top of the Web IDE and select *Port 3000*. Then append */photos* to the <abbr title="Uniform Resource Locator">URL</abbr> shown in the address bar (eg. `http://box-name.apse1.nitrousbox.com/photos`).
 You should see an empty page with the title "Listing photos". At the bottom you will see a link to add a "New Photo".
 
 Play around with this a little. We got all these when we ran those scaffold commands earlier.
@@ -125,8 +125,8 @@ Find the line that says
 Add the following two lines, above it:
 
 {% highlight erb %}
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 {% endhighlight %}
 
 Then replace
