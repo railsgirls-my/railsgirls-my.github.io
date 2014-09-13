@@ -15,6 +15,7 @@ Follow the instructions for your operating system. If you run into any problems,
 * [Setup for Windows](#setup-for-windows)
 * [Setup for Linux](#setup-for-linux)
 * [Alternative Installment for all OS](#virtual-machine)
+* [Use Nitrous.IO](#nitrous-io)
 
 <hr />
 
@@ -213,3 +214,6 @@ Now you should have a working Ruby on Rails programming setup. Congrats!
 
 Instead of installing all tools on your machine, you can also set up a development environment in a Virtual Machine. Please find all the details [here]({% post_url 2014-03-24-alternative-dev-environment %}).
 
+## Use Nitrous.IO
+
+Alternatively, you can use [Nitrous.IO](https://nitrous.io) and build the app using only your browser. Check the [quick setup guide]({% post_url 2014-08-11-nitrous %}) for Nitrous.IO.

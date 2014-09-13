@@ -1,0 +1,53 @@
+---
+layout: default
+title: Nitrous.IO Quick Setup for Rails Girls 
+permalink: nitrous
+---
+
+# Nitrous.IO Quick Setup for Rails Girls 
+
+*<a href="https://nitrous.io/" target="_blank">Nitrous.IO</a> is a cloud development box and text editor where you can write and run your code.*
+
+For [Rails Girls App Tutorial](/app), we will be using Nitrous.IO Web IDE. For a more detailed tour of Nitrous.IO, check out their official documentation at [http://help.nitrous.io](http://help.nitrous.io)
+
+## *1.*Signing up 
+
+<a href="https://www.nitrous.io/" target="_blank">Sign up</a> for a Nitrous.IO account and await their confirmation email.
+
+![Confirmation Email](/images/nitrous-email-confirm.png "Confirmation Email from Nitrous.IO")
+
+Click on the link in the email to activate your account.
+
+
+## *2.*Create your first box
+
+Upon a successful account signup, you'll be prompted to create your first Nitrous.IO box.
+
+![Creating your first box](/images/nitrous-first-box.png)
+
+Select the `Ruby/Rails` template. Pick a name for your box, or let the wizard generate a random name for you. Do not provide a Github repository as we will be creating a [Rails app](/app) from scratch.
+
+Click the `Create Box` button to proceed. The next step is optional; you can buy more N2O now or link your Nitrous.IO account to Github, Google and Twitter if you wish.
+
+![Get More N2O](/images/nitrous-get-n2o.png)
+
+
+## *3.*Web IDE
+Now that you have a freshly minted Nitrous.IO box, you are ready to start our [Rails Girls App tutorial](/app)! Before you do that though, take some time to read the text in `README.md` and explore the Web IDE a little.
+
+![Nitrous.IO Web IDE](/images/nitrous-web-ide-labeled.png "Fresh from the oven!")
+
+In case you had logged out beforehand and are now logging back in, you can return to the Web IDE by finding your box on your Dashboard, and clicking on the `IDE` button. 
+
+![Nitrous.IO boxes](/images/nitrous-boxes-1.png)
+
+Occasionally, you may find that your Nitrous box has stopped running. That is because Nitrous automatically kills off idle sessions. If that happens, click on the `Start` button to restart your box.
+
+![Nitrous.IO boxes](/images/nitrous-boxes-2.png)
+
+Nitrous.IO documentation also has a [general overview](http://help.nitrous.io/ide-general/) of the Web IDE. Check it out!
+
+
+## *4.*Next: [Rails Girls App Tutorial](/app)
+
+
