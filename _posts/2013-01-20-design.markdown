@@ -23,7 +23,7 @@ Open `app/views/layouts/application.html.erb` in your text editor and replace th
 with
 
 {% highlight html %}
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
 {% endhighlight %}
 
 Open `app/assets/stylesheets/application.css`, replace the line
@@ -71,7 +71,7 @@ Open `app/views/ideas/index.html.erb` in your text editor and replace all lines 
 <% @ideas.in_groups_of(3) do |group| %>
   <div class="row">
     <% group.compact.each do |idea| %>
-      <div class="span4">
+      <div class="col-xs-4">
         <%= image_tag idea.picture_url, :width => '100%' if idea.picture.present?%>
         <h4><%= link_to idea.name, idea %></h4>
         <%= idea.description %>
@@ -95,11 +95,11 @@ Open `app/views/ideas/show.html.erb` in your text editor and replace all lines w
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="span9">
+  <div class="col-xs-9">
     <%= image_tag(@idea.picture_url, :width => "100%") if @idea.picture.present? %>
   </div>
 
-  <div class="span3">
+  <div class="col-xs-3">
     <p><b>Name: </b><%= @idea.name %></p>
     <p><b>Description: </b><%= @idea.description %></p>
     <p>
